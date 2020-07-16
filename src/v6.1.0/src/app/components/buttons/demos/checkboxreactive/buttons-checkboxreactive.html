@@ -1,0 +1,15 @@
+<form [formGroup]="checkboxGroupForm">
+  <div class="btn-group btn-group-toggle">
+    <label class="btn-primary" ngbButtonLabel>
+      <input type="checkbox" formControlName="left" ngbButton> Left (pre-checked)
+    </label>
+    <label class="btn-primary" ngbButtonLabel>
+      <input type="checkbox" formControlName="middle" ngbButton> Middle
+    </label>
+    <label class="btn-primary" ngbButtonLabel>
+      <input type="checkbox" formControlName="right" ngbButton> Right
+    </label>
+  </div>
+</form>
+<hr>
+<pre>{{checkboxGroupForm.value | json}}</pre>

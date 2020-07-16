@@ -1,8 +1,18 @@
 {
-  "extends": "../tsconfig.json",
+  "compileOnSave": false,
   "compilerOptions": {
+    "rootDir": "./",
     "baseUrl": "./",
-    "outDir": "../out-tsc/demo",
+    "outDir": "./dist/out-tsc",
+    "sourceMap": true,
+    "declaration": false,
+    "downlevelIteration": true,
+    "experimentalDecorators": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "importHelpers": true,
+    "strictNullChecks": true,
+    "target": "es2015",
     "paths": {
       "@ng-bootstrap/ng-bootstrap": ["../src/index"]
     }
@@ -17,5 +27,17 @@
   "exclude": [
     "src/**/*.po.ts",
     "src/**/*.e2e-spec.ts"
-  ]
+  ],
+  "typeRoots": [
+    "node_modules/@types"
+  ],
+  "lib": [
+    "es2018",
+    "dom"
+  ],
+  "angularCompilerOptions": {
+    "strictTemplates": true,
+    "fullTemplateTypeCheck": true,
+    "strictInjectionParameters": true
+  }
 }

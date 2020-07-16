@@ -1,0 +1,23 @@
+{
+  "name": "ng-bootstrap-old-docs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/triamero/ng-bootstrap-old-docs.git"
+  },
+  "keywords": [
+    "ng-bootstrap",
+    "documentation"
+  ],
+  "author": "triamero",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/triamero/ng-bootstrap-old-docs/issues"
+  },
+  "homepage": "https://github.com/triamero/ng-bootstrap-old-docs#readme"
+}

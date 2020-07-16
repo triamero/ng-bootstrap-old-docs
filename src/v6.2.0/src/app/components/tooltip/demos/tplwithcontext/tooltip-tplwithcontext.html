@@ -1,0 +1,26 @@
+<p>
+  You can optionally pass in a context when manually triggering a tooltip.
+</p>
+
+<ng-template #tipContent let-greeting="greeting">{{greeting}}, <b>{{name}}</b>!</ng-template>
+<button
+  type="button" class="btn btn-outline-secondary mr-2"
+  [ngbTooltip]="tipContent"
+  triggers="manual" #t1="ngbTooltip" (click)="toggleWithGreeting(t1, 'Bonjour')"
+>
+  French
+</button>
+<button
+  type="button" class="btn btn-outline-secondary mr-2"
+  [ngbTooltip]="tipContent"
+  triggers="manual" #t2="ngbTooltip" (click)="toggleWithGreeting(t2, 'Gutentag')"
+>
+  German
+</button>
+<button
+  type="button" class="btn btn-outline-secondary mr-2"
+  [ngbTooltip]="tipContent"
+  triggers="manual" #t3="ngbTooltip" (click)="toggleWithGreeting(t3, 'Hello')"
+>
+  English
+</button>

@@ -13,28 +13,14 @@
     "importHelpers": true,
     "strictNullChecks": true,
     "target": "es2015",
-    "paths": {
-      "@ng-bootstrap/ng-bootstrap": ["../src/index"]
-    }
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "lib": [
+      "es2018",
+      "dom"
+    ]
   },
-  "files": [
-    "src/main.ts",
-    "src/polyfills.ts"
-  ],
-  "include": [
-    "src/**/*.d.ts"
-  ],
-  "exclude": [
-    "src/**/*.po.ts",
-    "src/**/*.e2e-spec.ts"
-  ],
-  "typeRoots": [
-    "node_modules/@types"
-  ],
-  "lib": [
-    "es2018",
-    "dom"
-  ],
   "angularCompilerOptions": {
     "strictTemplates": true,
     "fullTemplateTypeCheck": true,

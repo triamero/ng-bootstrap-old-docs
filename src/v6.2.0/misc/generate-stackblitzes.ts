@@ -45,8 +45,8 @@ const indexFile = ejs.compile(fileContent('misc', 'stackblitzes-templates', 'ind
 const mainFile = ejs.compile(fileContent('misc', 'stackblitzes-templates', 'main.ts.ejs'));
 const stackblitzFile = ejs.compile(fileContent('misc', 'stackblitzes-templates', 'stackblitz.html.ejs'));
 
-const base = path.join('src', 'public', 'stackblitzes');
-const root = path.join('src', 'app', 'components');
+const base = path.join('demo', 'src', 'public', 'stackblitzes');
+const root = path.join('demo', 'src', 'app', 'components');
 
 const initialData = {
   stackblitzUrl,
@@ -66,7 +66,7 @@ const initialData = {
     'zone.js': versions.zoneJs,
   }),
   tags: ['angular', 'bootstrap', 'ng-bootstrap'],
-  styles: fileContent('src', 'style', 'demos.css'),
+  styles: fileContent('demo', 'src', 'style', 'demos.css'),
   files: [
     {name: 'src/polyfills.ts', source: fileContent('misc', 'stackblitzes-templates', 'polyfills.ts')},
     {name: 'tsconfig.json', source: fileContent('misc', 'stackblitzes-templates', 'tsconfig.json')},

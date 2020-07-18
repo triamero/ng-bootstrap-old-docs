@@ -1,0 +1,41 @@
+# This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
+
+name: Publish
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Get release version
+        run: |
+          echo "::set-env name=m8_version::`node get-version.js`"
+          echo ${m8_version}
+      - name: Build
+        uses: actions/setup-node@v1
+        with:
+          node-version: "10.x"
+      - run: |
+          npm install
+          npm run build --if-present  
+      - name: Commit
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add dist/*
+          git commit -m "Release version ${m8_version}" -a
+          git tag ${m8_version}
+      - name: Push
+        uses: ad-m/github-push-action@v0.6.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          tags: true

@@ -29,11 +29,12 @@ jobs:
       - name: Install Yarn
         run: npm install yarn -g
         working-directory: ./tmp
+      - name: Patch v6.2.0 demo
+        run: git mv ./src/v6.2.0 ./tmp
+        working-directory: ./tmp
       - name: Install v6.2.0 dependencies
         run: yarn install
         working-directory: ./tmp
-      - name: Patch v6.2.0 demo
-        run: git mv ./src/v6.2.0 ./tmp
       - name: Build v6.2.0 demo
         run: yarn run demo:build
         working-directory: ./tmp

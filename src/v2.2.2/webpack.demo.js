@@ -56,7 +56,6 @@ module.exports = function makeWebpackConfig() {
    */
   config.output = {
     path: root('demo', 'dist'),
-    publicPath: '/',
     filename: isProd ? 'js/[name].[hash].js' : 'js/[name].js',
     chunkFilename: isProd ? '[id].[hash].chunk.js' : '[id].chunk.js'
   };
@@ -223,8 +222,7 @@ module.exports = function makeWebpackConfig() {
       // Minify all javascript, switch loaders to minimizing mode
       new webpack.optimize.UglifyJsPlugin({
         mangle: true,
-        output: {comments: false},
-        sourceMap: true
+        output: {comments: false}
       }),
 
       // Copy assets from the public folder

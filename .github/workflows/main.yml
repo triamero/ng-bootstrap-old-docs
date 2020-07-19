@@ -11,24 +11,44 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - name: Setup checkout
+        uses: actions/checkout@v2
         with:
           repository: ng-bootstrap/ng-bootstrap
-          path: ./src/v6.2.0
-      - name: Fetch all tags
-        working-directory: ./src/v6.2.0
-        run: git fetch --all --tags
-      - name: Checkout v6.2.0
-        run: git checkout tags/6.2.0
-        working-directory: ./src/v6.2.0
-      - name: Use NodeJS 12.x
+          path: ./tmp
+      - name: Setup NodeJS 12.x
         uses: actions/setup-node@v1
         with:
           node-version: 12.x
+      - name: Fetch all tags
+        working-directory: ./tmp
+        run: git fetch --all --tags
+      - name: Checkout v6.2.0
+        run: git checkout tags/6.2.0
+        working-directory: ./tmp
       - name: Install Yarn
         run: npm install yarn -g
-        working-directory: ./src/v6.2.0
+        working-directory: ./tmp
       - name: Install v6.2.0 dependencies
         run: yarn install
-        working-directory: ./src/v6.2.0
+        working-directory: ./tmp
+      - name: Patch v6.2.0 demo
+        run: git mv ./src/v6.2.0 ./tmp
+      - name: Build v6.2.0 demo
+        run: yarn run demo:build
+        working-directory: ./tmp
+      - name: Clean up v6.2.0 directory
+        run: git rm ./v6.2.0 -f
+      - name: Copy v6.2.0 dist to output directory
+        run: git mv ./tmp/demo/dist ./v6.2.0
+      - name: Commit v6.2.0
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add ./v6.2.0/*
+          git commit -m "v6.2.0 documentation" -a
+      - name: Push v6.2.0
+        uses: ad-m/github-push-action@v0.6.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
         

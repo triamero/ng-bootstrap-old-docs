@@ -16,6 +16,8 @@ jobs:
           repository: ng-bootstrap/ng-bootstrap
           path: ./src/v6.2.0
       - name: Fetch all tags
+        working-directory: ./src/v6.2.0
         run: git fetch --all --tags
       - name: Checkout v6.2.0
         run: git checkout tags/6.2.0
+        working-directory: ./src/v6.2.0

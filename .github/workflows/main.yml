@@ -42,9 +42,8 @@ jobs:
         run: git rm ./v6.2.0/* -f -r
       - name: Copy v6.2.0 dist to output directory
         run: |
-          git add ./tmp/demo/dist/* -f
           mkdir ./v6.2.0
-          git mv ./tmp/demo/dist/* ./v6.2.0/
+          mv ./tmp/demo/dist/* ./v6.2.0/
       - name: Commit v6.2.0
         run: |
           git config --local user.email "action@github.com"

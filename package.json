@@ -1,11 +1,7 @@
 {
   "name": "ng-bootstrap-old-docs",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "description": "Compilation of all versions of ng-bootstrap documentation",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/triamero/ng-bootstrap-old-docs.git"

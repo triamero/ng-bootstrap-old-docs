@@ -11,9 +11,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout v6.2.0
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v2
         with:
           repository: ng-bootstrap/ng-bootstrap
-      - run: git fetch --all --tags
-      - run: git checkout tags/6.2.0
+          path: ./src/v6.2.0
+      - name: Fetch all tags
+        run: git fetch --all --tags
+      - name: Checkout v6.2.0
+        run: git checkout tags/6.2.0

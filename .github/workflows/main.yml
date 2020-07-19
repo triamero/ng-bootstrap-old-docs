@@ -6,7 +6,7 @@ on:
       - master
 
 jobs:
-  build_v110:
+  build_v104:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -28,10 +28,10 @@ jobs:
         working-directory: ./tmp
         run: git fetch --all --tags
       - name: Checkout tag
-        run: git checkout tags/1.1.0
+        run: git checkout tags/1.0.4
         working-directory: ./tmp
       - name: Patch
-        run: cp -rf ./src/v1.1.0/. ./tmp
+        run: cp -rf ./src/v1.0.4/. ./tmp
       - name: Install dependencies
         run: yarn install
         working-directory: ./tmp
@@ -41,11 +41,163 @@ jobs:
       - name: Upload dist
         uses: actions/upload-artifact@v2
         with:
-          name: v1.1.0
+          name: v1.0.4
+          path: ./tmp/demo/dist/
+
+  build_v103:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup NodeJS 10.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 10.x
+      - name: Install Yarn
+        run: npm install yarn -g
+      - name: Install Gulp
+        run: npm install gulp -g
+      - name: Checkout ng-bootstrap/ng-bootstrap
+        uses: actions/checkout@v2
+        with:
+          repository: ng-bootstrap/ng-bootstrap
+          path: ./tmp
+      - name: Fetch all tags
+        working-directory: ./tmp
+        run: git fetch --all --tags
+      - name: Checkout tag
+        run: git checkout tags/1.0.3
+        working-directory: ./tmp
+      - name: Patch
+        run: cp -rf ./src/v1.0.3/. ./tmp
+      - name: Install dependencies
+        run: yarn install
+        working-directory: ./tmp
+      - name: Build demo
+        run: gulp build:demo
+        working-directory: ./tmp
+      - name: Upload dist
+        uses: actions/upload-artifact@v2
+        with:
+          name: v1.0.3
+          path: ./tmp/demo/dist/
+
+  build_v102:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup NodeJS 10.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 10.x
+      - name: Install Yarn
+        run: npm install yarn -g
+      - name: Install Gulp
+        run: npm install gulp -g
+      - name: Checkout ng-bootstrap/ng-bootstrap
+        uses: actions/checkout@v2
+        with:
+          repository: ng-bootstrap/ng-bootstrap
+          path: ./tmp
+      - name: Fetch all tags
+        working-directory: ./tmp
+        run: git fetch --all --tags
+      - name: Checkout tag
+        run: git checkout tags/1.0.2
+        working-directory: ./tmp
+      - name: Patch
+        run: cp -rf ./src/v1.0.2/. ./tmp
+      - name: Install dependencies
+        run: yarn install
+        working-directory: ./tmp
+      - name: Build demo
+        run: gulp build:demo
+        working-directory: ./tmp
+      - name: Upload dist
+        uses: actions/upload-artifact@v2
+        with:
+          name: v1.0.2
+          path: ./tmp/demo/dist/
+
+  build_v101:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup NodeJS 10.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 10.x
+      - name: Install Yarn
+        run: npm install yarn -g
+      - name: Install Gulp
+        run: npm install gulp -g
+      - name: Checkout ng-bootstrap/ng-bootstrap
+        uses: actions/checkout@v2
+        with:
+          repository: ng-bootstrap/ng-bootstrap
+          path: ./tmp
+      - name: Fetch all tags
+        working-directory: ./tmp
+        run: git fetch --all --tags
+      - name: Checkout tag
+        run: git checkout tags/1.0.1
+        working-directory: ./tmp
+      - name: Patch
+        run: cp -rf ./src/v1.0.1/. ./tmp
+      - name: Install dependencies
+        run: yarn install
+        working-directory: ./tmp
+      - name: Build demo
+        run: gulp build:demo
+        working-directory: ./tmp
+      - name: Upload dist
+        uses: actions/upload-artifact@v2
+        with:
+          name: v1.0.1
+          path: ./tmp/demo/dist/
+
+  build_v100:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup NodeJS 10.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 10.x
+      - name: Install Yarn
+        run: npm install yarn -g
+      - name: Install Gulp
+        run: npm install gulp -g
+      - name: Checkout ng-bootstrap/ng-bootstrap
+        uses: actions/checkout@v2
+        with:
+          repository: ng-bootstrap/ng-bootstrap
+          path: ./tmp
+      - name: Fetch all tags
+        working-directory: ./tmp
+        run: git fetch --all --tags
+      - name: Checkout tag
+        run: git checkout tags/1.0.0
+        working-directory: ./tmp
+      - name: Patch
+        run: cp -rf ./src/v1.0.0/. ./tmp
+      - name: Install dependencies
+        run: yarn install
+        working-directory: ./tmp
+      - name: Build demo
+        run: gulp build:demo
+        working-directory: ./tmp
+      - name: Upload dist
+        uses: actions/upload-artifact@v2
+        with:
+          name: v1.0.0
           path: ./tmp/demo/dist/
 
   commit_results:
-    needs: [build_v110]
+    needs: [build_v104, build_v103, build_v102, build_v101, build_v100]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -54,16 +206,56 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-      - name: Clean up v1.1.0 directory
+      - name: Clean up v1.0.4 directory
         run: |
-          mkdir ./v1.1.0 -p
-          git rm ./v1.1.0/* -f -r --ignore-unmatch
-      - name: Download v1.1.0 artifacts
+          mkdir ./v1.0.4 -p
+          git rm ./v1.0.4/* -f -r --ignore-unmatch
+      - name: Download v1.0.4 artifacts
         uses: actions/download-artifact@v2
         with:
-          name: v1.1.0
-          path: ./v1.1.0/
-      - run: git add ./v1.1.0/*
+          name: v1.0.4
+          path: ./v1.0.4/
+      - run: git add ./v1.0.4/*
+      - name: Clean up v1.0.3 directory
+        run: |
+          mkdir ./v1.0.3 -p
+          git rm ./v1.0.3/* -f -r --ignore-unmatch
+      - name: Download v1.0.3 artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: v1.0.3
+          path: ./v1.0.3/
+      - run: git add ./v1.0.3/*
+      - name: Clean up v1.0.2 directory
+        run: |
+          mkdir ./v1.0.2 -p
+          git rm ./v1.0.2/* -f -r --ignore-unmatch
+      - name: Download v1.0.2 artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: v1.0.2
+          path: ./v1.0.2/
+      - run: git add ./v1.0.2/*
+      - name: Clean up v1.0.1 directory
+        run: |
+          mkdir ./v1.0.1 -p
+          git rm ./v1.0.1/* -f -r --ignore-unmatch
+      - name: Download v1.0.1 artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: v1.0.1
+          path: ./v1.0.1/
+      - run: git add ./v1.0.1/*
+      - name: Clean up v1.0.0 directory
+        run: |
+          mkdir ./v1.0.0 -p
+          git rm ./v1.0.0/* -f -r --ignore-unmatch
+      - name: Download v1.0.0 artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: v1.0.0
+          path: ./v1.0.0/
+      - run: git add ./v1.0.0/*
       - name: Commit changes
         run: |
           if ! git diff-index --quiet HEAD --; then

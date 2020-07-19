@@ -39,9 +39,9 @@ jobs:
         run: yarn run demo:build
         working-directory: ./tmp
       - name: Clean up v6.2.0 directory
-        run: git rm ./v6.2.0 -f
+        run: git rm ./v6.2.0 -f -r
       - name: Copy v6.2.0 dist to output directory
-        run: git mv ./tmp/demo/dist ./v6.2.0
+        run: git mv ./tmp/demo/dist/* ./v6.2.0
       - name: Commit v6.2.0
         run: |
           git config --local user.email "action@github.com"

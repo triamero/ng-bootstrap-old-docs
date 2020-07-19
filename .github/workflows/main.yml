@@ -11,7 +11,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Setup checkout
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Checkout ng-bootstrap/ng-bootstrap
         uses: actions/checkout@v2
         with:
           repository: ng-bootstrap/ng-bootstrap

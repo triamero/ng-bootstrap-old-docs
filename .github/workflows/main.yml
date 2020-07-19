@@ -79,6 +79,7 @@ jobs:
           path: ./tmp/demo/dist/
 
   commit_results:
+    needs: [build_v620, build_v610]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout

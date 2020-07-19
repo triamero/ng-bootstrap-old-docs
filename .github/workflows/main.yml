@@ -15,4 +15,5 @@ jobs:
         uses: actions/checkout@v2
         with:
           repository: ng-bootstrap/ng-bootstrap
+      - run: git fetch --all --tags
       - run: git checkout tags/6.2.0

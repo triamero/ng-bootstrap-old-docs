@@ -33,7 +33,7 @@ jobs:
       - name: Show directory
         run: dir ./src
       - name: Patch v6.2.0 demo
-        run: cp -r ./src/v6.2.0 ./tmp
+        run: cp -r ./src/v6.2.0/. ./tmp
       - name: Install v6.2.0 dependencies
         run: yarn install
         working-directory: ./tmp

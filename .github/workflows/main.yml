@@ -6,7 +6,7 @@ on:
       - master
 
 jobs:
-  build_v6.2.0:
+  build_v620:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -42,7 +42,7 @@ jobs:
           name: v6.2.0
           path: ./tmp/demo/dist/
 
-  build_v6.1.0:
+  build_v610:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout

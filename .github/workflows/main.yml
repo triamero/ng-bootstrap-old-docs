@@ -78,8 +78,1340 @@ jobs:
           name: v6.1.0
           path: ./tmp/demo/dist/
 
+  build_v603:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup NodeJS 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - name: Install Yarn
+        run: npm install yarn -g
+      - name: Checkout ng-bootstrap/ng-bootstrap
+        uses: actions/checkout@v2
+        with:
+          repository: ng-bootstrap/ng-bootstrap
+          path: ./tmp
+      - name: Fetch all tags
+        working-directory: ./tmp
+        run: git fetch --all --tags
+      - name: Checkout tag
+        run: git checkout tags/6.0.3
+        working-directory: ./tmp
+      - name: Patch
+        run: cp -rf ./src/v6.0.3/. ./tmp
+      - name: Install dependencies
+        run: yarn install
+        working-directory: ./tmp
+      - name: Build demo
+        run: yarn run demo:build
+        working-directory: ./tmp
+      - name: Upload dist
+        uses: actions/upload-artifact@v2
+        with:
+          name: v6.0.3
+          path: ./tmp/demo/dist/
+
+  build_v602:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup NodeJS 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - name: Install Yarn
+        run: npm install yarn -g
+      - name: Checkout ng-bootstrap/ng-bootstrap
+        uses: actions/checkout@v2
+        with:
+          repository: ng-bootstrap/ng-bootstrap
+          path: ./tmp
+      - name: Fetch all tags
+        working-directory: ./tmp
+        run: git fetch --all --tags
+      - name: Checkout tag
+        run: git checkout tags/6.0.2
+        working-directory: ./tmp
+      - name: Patch
+        run: cp -rf ./src/v6.0.2/. ./tmp
+      - name: Install dependencies
+        run: yarn install
+        working-directory: ./tmp
+      - name: Build demo
+        run: yarn run demo:build
+        working-directory: ./tmp
+      - name: Upload dist
+        uses: actions/upload-artifact@v2
+        with:
+          name: v6.0.2
+          path: ./tmp/demo/dist/
+
+  build_v601:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup NodeJS 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - name: Install Yarn
+        run: npm install yarn -g
+      - name: Checkout ng-bootstrap/ng-bootstrap
+        uses: actions/checkout@v2
+        with:
+          repository: ng-bootstrap/ng-bootstrap
+          path: ./tmp
+      - name: Fetch all tags
+        working-directory: ./tmp
+        run: git fetch --all --tags
+      - name: Checkout tag
+        run: git checkout tags/6.0.1
+        working-directory: ./tmp
+      - name: Patch
+        run: cp -rf ./src/v6.0.1/. ./tmp
+      - name: Install dependencies
+        run: yarn install
+        working-directory: ./tmp
+      - name: Build demo
+        run: yarn run demo:build
+        working-directory: ./tmp
+      - name: Upload dist
+        uses: actions/upload-artifact@v2
+        with:
+          name: v6.0.1
+          path: ./tmp/demo/dist/
+
+  build_v600:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup NodeJS 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - name: Install Yarn
+        run: npm install yarn -g
+      - name: Checkout ng-bootstrap/ng-bootstrap
+        uses: actions/checkout@v2
+        with:
+          repository: ng-bootstrap/ng-bootstrap
+          path: ./tmp
+      - name: Fetch all tags
+        working-directory: ./tmp
+        run: git fetch --all --tags
+      - name: Checkout tag
+        run: git checkout tags/6.0.0
+        working-directory: ./tmp
+      - name: Patch
+        run: cp -rf ./src/v6.0.0/. ./tmp
+      - name: Install dependencies
+        run: yarn install
+        working-directory: ./tmp
+      - name: Build demo
+        run: yarn run demo:build
+        working-directory: ./tmp
+      - name: Upload dist
+        uses: actions/upload-artifact@v2
+        with:
+          name: v6.0.0
+          path: ./tmp/demo/dist/
+
+  build_v531:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup NodeJS 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - name: Install Yarn
+        run: npm install yarn -g
+      - name: Checkout ng-bootstrap/ng-bootstrap
+        uses: actions/checkout@v2
+        with:
+          repository: ng-bootstrap/ng-bootstrap
+          path: ./tmp
+      - name: Fetch all tags
+        working-directory: ./tmp
+        run: git fetch --all --tags
+      - name: Checkout tag
+        run: git checkout tags/5.3.1
+        working-directory: ./tmp
+      - name: Patch
+        run: cp -rf ./src/v5.3.1/. ./tmp
+      - name: Install dependencies
+        run: yarn install
+        working-directory: ./tmp
+      - name: Build demo
+        run: yarn run demo:build
+        working-directory: ./tmp
+      - name: Upload dist
+        uses: actions/upload-artifact@v2
+        with:
+          name: v5.3.1
+          path: ./tmp/demo/dist/
+
+  build_v530:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup NodeJS 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - name: Install Yarn
+        run: npm install yarn -g
+      - name: Checkout ng-bootstrap/ng-bootstrap
+        uses: actions/checkout@v2
+        with:
+          repository: ng-bootstrap/ng-bootstrap
+          path: ./tmp
+      - name: Fetch all tags
+        working-directory: ./tmp
+        run: git fetch --all --tags
+      - name: Checkout tag
+        run: git checkout tags/5.3.0
+        working-directory: ./tmp
+      - name: Patch
+        run: cp -rf ./src/v5.3.0/. ./tmp
+      - name: Install dependencies
+        run: yarn install
+        working-directory: ./tmp
+      - name: Build demo
+        run: yarn run demo:build
+        working-directory: ./tmp
+      - name: Upload dist
+        uses: actions/upload-artifact@v2
+        with:
+          name: v5.3.0
+          path: ./tmp/demo/dist/
+
+  build_v523:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup NodeJS 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - name: Install Yarn
+        run: npm install yarn -g
+      - name: Checkout ng-bootstrap/ng-bootstrap
+        uses: actions/checkout@v2
+        with:
+          repository: ng-bootstrap/ng-bootstrap
+          path: ./tmp
+      - name: Fetch all tags
+        working-directory: ./tmp
+        run: git fetch --all --tags
+      - name: Checkout tag
+        run: git checkout tags/5.2.3
+        working-directory: ./tmp
+      - name: Patch
+        run: cp -rf ./src/v5.2.3/. ./tmp
+      - name: Install dependencies
+        run: yarn install
+        working-directory: ./tmp
+      - name: Build demo
+        run: yarn run demo:build
+        working-directory: ./tmp
+      - name: Upload dist
+        uses: actions/upload-artifact@v2
+        with:
+          name: v5.2.3
+          path: ./tmp/demo/dist/
+
+  build_v522:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup NodeJS 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - name: Install Yarn
+        run: npm install yarn -g
+      - name: Checkout ng-bootstrap/ng-bootstrap
+        uses: actions/checkout@v2
+        with:
+          repository: ng-bootstrap/ng-bootstrap
+          path: ./tmp
+      - name: Fetch all tags
+        working-directory: ./tmp
+        run: git fetch --all --tags
+      - name: Checkout tag
+        run: git checkout tags/5.2.2
+        working-directory: ./tmp
+      - name: Patch
+        run: cp -rf ./src/v5.2.2/. ./tmp
+      - name: Install dependencies
+        run: yarn install
+        working-directory: ./tmp
+      - name: Build demo
+        run: yarn run demo:build
+        working-directory: ./tmp
+      - name: Upload dist
+        uses: actions/upload-artifact@v2
+        with:
+          name: v5.2.2
+          path: ./tmp/demo/dist/
+
+  build_v521:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup NodeJS 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - name: Install Yarn
+        run: npm install yarn -g
+      - name: Checkout ng-bootstrap/ng-bootstrap
+        uses: actions/checkout@v2
+        with:
+          repository: ng-bootstrap/ng-bootstrap
+          path: ./tmp
+      - name: Fetch all tags
+        working-directory: ./tmp
+        run: git fetch --all --tags
+      - name: Checkout tag
+        run: git checkout tags/5.2.1
+        working-directory: ./tmp
+      - name: Patch
+        run: cp -rf ./src/v5.2.1/. ./tmp
+      - name: Install dependencies
+        run: yarn install
+        working-directory: ./tmp
+      - name: Build demo
+        run: yarn run demo:build
+        working-directory: ./tmp
+      - name: Upload dist
+        uses: actions/upload-artifact@v2
+        with:
+          name: v5.2.1
+          path: ./tmp/demo/dist/
+
+  build_v520:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup NodeJS 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - name: Install Yarn
+        run: npm install yarn -g
+      - name: Checkout ng-bootstrap/ng-bootstrap
+        uses: actions/checkout@v2
+        with:
+          repository: ng-bootstrap/ng-bootstrap
+          path: ./tmp
+      - name: Fetch all tags
+        working-directory: ./tmp
+        run: git fetch --all --tags
+      - name: Checkout tag
+        run: git checkout tags/5.2.0
+        working-directory: ./tmp
+      - name: Patch
+        run: cp -rf ./src/v5.2.0/. ./tmp
+      - name: Install dependencies
+        run: yarn install
+        working-directory: ./tmp
+      - name: Build demo
+        run: yarn run demo:build
+        working-directory: ./tmp
+      - name: Upload dist
+        uses: actions/upload-artifact@v2
+        with:
+          name: v5.2.0
+          path: ./tmp/demo/dist/
+
+  build_v515:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup NodeJS 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - name: Install Yarn
+        run: npm install yarn -g
+      - name: Checkout ng-bootstrap/ng-bootstrap
+        uses: actions/checkout@v2
+        with:
+          repository: ng-bootstrap/ng-bootstrap
+          path: ./tmp
+      - name: Fetch all tags
+        working-directory: ./tmp
+        run: git fetch --all --tags
+      - name: Checkout tag
+        run: git checkout tags/5.1.5
+        working-directory: ./tmp
+      - name: Patch
+        run: cp -rf ./src/v5.1.5/. ./tmp
+      - name: Install dependencies
+        run: yarn install
+        working-directory: ./tmp
+      - name: Build demo
+        run: yarn run demo:build
+        working-directory: ./tmp
+      - name: Upload dist
+        uses: actions/upload-artifact@v2
+        with:
+          name: v5.1.5
+          path: ./tmp/demo/dist/
+
+  build_v514:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup NodeJS 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - name: Install Yarn
+        run: npm install yarn -g
+      - name: Checkout ng-bootstrap/ng-bootstrap
+        uses: actions/checkout@v2
+        with:
+          repository: ng-bootstrap/ng-bootstrap
+          path: ./tmp
+      - name: Fetch all tags
+        working-directory: ./tmp
+        run: git fetch --all --tags
+      - name: Checkout tag
+        run: git checkout tags/5.1.4
+        working-directory: ./tmp
+      - name: Patch
+        run: cp -rf ./src/v5.1.4/. ./tmp
+      - name: Install dependencies
+        run: yarn install
+        working-directory: ./tmp
+      - name: Build demo
+        run: yarn run demo:build
+        working-directory: ./tmp
+      - name: Upload dist
+        uses: actions/upload-artifact@v2
+        with:
+          name: v5.1.4
+          path: ./tmp/demo/dist/
+
+  build_v513:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup NodeJS 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - name: Install Yarn
+        run: npm install yarn -g
+      - name: Checkout ng-bootstrap/ng-bootstrap
+        uses: actions/checkout@v2
+        with:
+          repository: ng-bootstrap/ng-bootstrap
+          path: ./tmp
+      - name: Fetch all tags
+        working-directory: ./tmp
+        run: git fetch --all --tags
+      - name: Checkout tag
+        run: git checkout tags/5.1.3
+        working-directory: ./tmp
+      - name: Patch
+        run: cp -rf ./src/v5.1.3/. ./tmp
+      - name: Install dependencies
+        run: yarn install
+        working-directory: ./tmp
+      - name: Build demo
+        run: yarn run demo:build
+        working-directory: ./tmp
+      - name: Upload dist
+        uses: actions/upload-artifact@v2
+        with:
+          name: v5.1.3
+          path: ./tmp/demo/dist/
+
+  build_v512:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup NodeJS 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - name: Install Yarn
+        run: npm install yarn -g
+      - name: Checkout ng-bootstrap/ng-bootstrap
+        uses: actions/checkout@v2
+        with:
+          repository: ng-bootstrap/ng-bootstrap
+          path: ./tmp
+      - name: Fetch all tags
+        working-directory: ./tmp
+        run: git fetch --all --tags
+      - name: Checkout tag
+        run: git checkout tags/5.1.2
+        working-directory: ./tmp
+      - name: Patch
+        run: cp -rf ./src/v5.1.2/. ./tmp
+      - name: Install dependencies
+        run: yarn install
+        working-directory: ./tmp
+      - name: Build demo
+        run: yarn run demo:build
+        working-directory: ./tmp
+      - name: Upload dist
+        uses: actions/upload-artifact@v2
+        with:
+          name: v5.1.2
+          path: ./tmp/demo/dist/
+
+  build_v511:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup NodeJS 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - name: Install Yarn
+        run: npm install yarn -g
+      - name: Checkout ng-bootstrap/ng-bootstrap
+        uses: actions/checkout@v2
+        with:
+          repository: ng-bootstrap/ng-bootstrap
+          path: ./tmp
+      - name: Fetch all tags
+        working-directory: ./tmp
+        run: git fetch --all --tags
+      - name: Checkout tag
+        run: git checkout tags/5.1.1
+        working-directory: ./tmp
+      - name: Patch
+        run: cp -rf ./src/v5.1.1/. ./tmp
+      - name: Install dependencies
+        run: yarn install
+        working-directory: ./tmp
+      - name: Build demo
+        run: yarn run demo:build
+        working-directory: ./tmp
+      - name: Upload dist
+        uses: actions/upload-artifact@v2
+        with:
+          name: v5.1.1
+          path: ./tmp/demo/dist/
+
+  build_v510:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup NodeJS 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - name: Install Yarn
+        run: npm install yarn -g
+      - name: Checkout ng-bootstrap/ng-bootstrap
+        uses: actions/checkout@v2
+        with:
+          repository: ng-bootstrap/ng-bootstrap
+          path: ./tmp
+      - name: Fetch all tags
+        working-directory: ./tmp
+        run: git fetch --all --tags
+      - name: Checkout tag
+        run: git checkout tags/5.1.0
+        working-directory: ./tmp
+      - name: Patch
+        run: cp -rf ./src/v5.1.0/. ./tmp
+      - name: Install dependencies
+        run: yarn install
+        working-directory: ./tmp
+      - name: Build demo
+        run: yarn run demo:build
+        working-directory: ./tmp
+      - name: Upload dist
+        uses: actions/upload-artifact@v2
+        with:
+          name: v5.1.0
+          path: ./tmp/demo/dist/
+
+  build_v500:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup NodeJS 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - name: Install Yarn
+        run: npm install yarn -g
+      - name: Checkout ng-bootstrap/ng-bootstrap
+        uses: actions/checkout@v2
+        with:
+          repository: ng-bootstrap/ng-bootstrap
+          path: ./tmp
+      - name: Fetch all tags
+        working-directory: ./tmp
+        run: git fetch --all --tags
+      - name: Checkout tag
+        run: git checkout tags/5.0.0
+        working-directory: ./tmp
+      - name: Patch
+        run: cp -rf ./src/v5.0.0/. ./tmp
+      - name: Install dependencies
+        run: yarn install
+        working-directory: ./tmp
+      - name: Build demo
+        run: yarn run demo:build
+        working-directory: ./tmp
+      - name: Upload dist
+        uses: actions/upload-artifact@v2
+        with:
+          name: v5.0.0
+          path: ./tmp/demo/dist/
+
+  build_v422:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup NodeJS 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - name: Install Yarn
+        run: npm install yarn -g
+      - name: Checkout ng-bootstrap/ng-bootstrap
+        uses: actions/checkout@v2
+        with:
+          repository: ng-bootstrap/ng-bootstrap
+          path: ./tmp
+      - name: Fetch all tags
+        working-directory: ./tmp
+        run: git fetch --all --tags
+      - name: Checkout tag
+        run: git checkout tags/4.2.2
+        working-directory: ./tmp
+      - name: Patch
+        run: cp -rf ./src/v4.2.2/. ./tmp
+      - name: Install dependencies
+        run: yarn install
+        working-directory: ./tmp
+      - name: Build demo
+        run: yarn run demo:build
+        working-directory: ./tmp
+      - name: Upload dist
+        uses: actions/upload-artifact@v2
+        with:
+          name: v4.2.2
+          path: ./tmp/demo/dist/
+
+  build_v421:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup NodeJS 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - name: Install Yarn
+        run: npm install yarn -g
+      - name: Checkout ng-bootstrap/ng-bootstrap
+        uses: actions/checkout@v2
+        with:
+          repository: ng-bootstrap/ng-bootstrap
+          path: ./tmp
+      - name: Fetch all tags
+        working-directory: ./tmp
+        run: git fetch --all --tags
+      - name: Checkout tag
+        run: git checkout tags/4.2.1
+        working-directory: ./tmp
+      - name: Patch
+        run: cp -rf ./src/v4.2.1/. ./tmp
+      - name: Install dependencies
+        run: yarn install
+        working-directory: ./tmp
+      - name: Build demo
+        run: yarn run demo:build
+        working-directory: ./tmp
+      - name: Upload dist
+        uses: actions/upload-artifact@v2
+        with:
+          name: v4.2.1
+          path: ./tmp/demo/dist/
+
+  build_v420:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup NodeJS 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - name: Install Yarn
+        run: npm install yarn -g
+      - name: Checkout ng-bootstrap/ng-bootstrap
+        uses: actions/checkout@v2
+        with:
+          repository: ng-bootstrap/ng-bootstrap
+          path: ./tmp
+      - name: Fetch all tags
+        working-directory: ./tmp
+        run: git fetch --all --tags
+      - name: Checkout tag
+        run: git checkout tags/4.2.0
+        working-directory: ./tmp
+      - name: Patch
+        run: cp -rf ./src/v4.2.0/. ./tmp
+      - name: Install dependencies
+        run: yarn install
+        working-directory: ./tmp
+      - name: Build demo
+        run: yarn run demo:build
+        working-directory: ./tmp
+      - name: Upload dist
+        uses: actions/upload-artifact@v2
+        with:
+          name: v4.2.0
+          path: ./tmp/demo/dist/
+
+  build_v413:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup NodeJS 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - name: Install Yarn
+        run: npm install yarn -g
+      - name: Checkout ng-bootstrap/ng-bootstrap
+        uses: actions/checkout@v2
+        with:
+          repository: ng-bootstrap/ng-bootstrap
+          path: ./tmp
+      - name: Fetch all tags
+        working-directory: ./tmp
+        run: git fetch --all --tags
+      - name: Checkout tag
+        run: git checkout tags/4.1.3
+        working-directory: ./tmp
+      - name: Patch
+        run: cp -rf ./src/v4.1.3/. ./tmp
+      - name: Install dependencies
+        run: yarn install
+        working-directory: ./tmp
+      - name: Build demo
+        run: yarn run demo:build
+        working-directory: ./tmp
+      - name: Upload dist
+        uses: actions/upload-artifact@v2
+        with:
+          name: v4.1.3
+          path: ./tmp/demo/dist/
+
+  build_v412:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup NodeJS 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - name: Install Yarn
+        run: npm install yarn -g
+      - name: Checkout ng-bootstrap/ng-bootstrap
+        uses: actions/checkout@v2
+        with:
+          repository: ng-bootstrap/ng-bootstrap
+          path: ./tmp
+      - name: Fetch all tags
+        working-directory: ./tmp
+        run: git fetch --all --tags
+      - name: Checkout tag
+        run: git checkout tags/4.1.2
+        working-directory: ./tmp
+      - name: Patch
+        run: cp -rf ./src/v4.1.2/. ./tmp
+      - name: Install dependencies
+        run: yarn install
+        working-directory: ./tmp
+      - name: Build demo
+        run: yarn run demo:build
+        working-directory: ./tmp
+      - name: Upload dist
+        uses: actions/upload-artifact@v2
+        with:
+          name: v4.1.2
+          path: ./tmp/demo/dist/
+
+  build_v411:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup NodeJS 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - name: Install Yarn
+        run: npm install yarn -g
+      - name: Checkout ng-bootstrap/ng-bootstrap
+        uses: actions/checkout@v2
+        with:
+          repository: ng-bootstrap/ng-bootstrap
+          path: ./tmp
+      - name: Fetch all tags
+        working-directory: ./tmp
+        run: git fetch --all --tags
+      - name: Checkout tag
+        run: git checkout tags/4.1.1
+        working-directory: ./tmp
+      - name: Patch
+        run: cp -rf ./src/v4.1.1/. ./tmp
+      - name: Install dependencies
+        run: yarn install
+        working-directory: ./tmp
+      - name: Build demo
+        run: yarn run demo:build
+        working-directory: ./tmp
+      - name: Upload dist
+        uses: actions/upload-artifact@v2
+        with:
+          name: v4.1.1
+          path: ./tmp/demo/dist/
+
+  build_v410:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup NodeJS 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - name: Install Yarn
+        run: npm install yarn -g
+      - name: Checkout ng-bootstrap/ng-bootstrap
+        uses: actions/checkout@v2
+        with:
+          repository: ng-bootstrap/ng-bootstrap
+          path: ./tmp
+      - name: Fetch all tags
+        working-directory: ./tmp
+        run: git fetch --all --tags
+      - name: Checkout tag
+        run: git checkout tags/4.1.0
+        working-directory: ./tmp
+      - name: Patch
+        run: cp -rf ./src/v4.1.0/. ./tmp
+      - name: Install dependencies
+        run: yarn install
+        working-directory: ./tmp
+      - name: Build demo
+        run: yarn run demo:build
+        working-directory: ./tmp
+      - name: Upload dist
+        uses: actions/upload-artifact@v2
+        with:
+          name: v4.1.0
+          path: ./tmp/demo/dist/
+
+  build_v405:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup NodeJS 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - name: Install Yarn
+        run: npm install yarn -g
+      - name: Checkout ng-bootstrap/ng-bootstrap
+        uses: actions/checkout@v2
+        with:
+          repository: ng-bootstrap/ng-bootstrap
+          path: ./tmp
+      - name: Fetch all tags
+        working-directory: ./tmp
+        run: git fetch --all --tags
+      - name: Checkout tag
+        run: git checkout tags/4.0.5
+        working-directory: ./tmp
+      - name: Patch
+        run: cp -rf ./src/v4.0.5/. ./tmp
+      - name: Install dependencies
+        run: yarn install
+        working-directory: ./tmp
+      - name: Build demo
+        run: yarn run demo:build
+        working-directory: ./tmp
+      - name: Upload dist
+        uses: actions/upload-artifact@v2
+        with:
+          name: v4.0.5
+          path: ./tmp/demo/dist/
+
+  build_v404:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup NodeJS 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - name: Install Yarn
+        run: npm install yarn -g
+      - name: Checkout ng-bootstrap/ng-bootstrap
+        uses: actions/checkout@v2
+        with:
+          repository: ng-bootstrap/ng-bootstrap
+          path: ./tmp
+      - name: Fetch all tags
+        working-directory: ./tmp
+        run: git fetch --all --tags
+      - name: Checkout tag
+        run: git checkout tags/4.0.4
+        working-directory: ./tmp
+      - name: Patch
+        run: cp -rf ./src/v4.0.4/. ./tmp
+      - name: Install dependencies
+        run: yarn install
+        working-directory: ./tmp
+      - name: Build demo
+        run: yarn run demo:build
+        working-directory: ./tmp
+      - name: Upload dist
+        uses: actions/upload-artifact@v2
+        with:
+          name: v4.0.4
+          path: ./tmp/demo/dist/
+
+  build_v403:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup NodeJS 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - name: Install Yarn
+        run: npm install yarn -g
+      - name: Checkout ng-bootstrap/ng-bootstrap
+        uses: actions/checkout@v2
+        with:
+          repository: ng-bootstrap/ng-bootstrap
+          path: ./tmp
+      - name: Fetch all tags
+        working-directory: ./tmp
+        run: git fetch --all --tags
+      - name: Checkout tag
+        run: git checkout tags/4.0.3
+        working-directory: ./tmp
+      - name: Patch
+        run: cp -rf ./src/v4.0.3/. ./tmp
+      - name: Install dependencies
+        run: yarn install
+        working-directory: ./tmp
+      - name: Build demo
+        run: yarn run demo:build
+        working-directory: ./tmp
+      - name: Upload dist
+        uses: actions/upload-artifact@v2
+        with:
+          name: v4.0.3
+          path: ./tmp/demo/dist/
+
+  build_v402:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup NodeJS 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - name: Install Yarn
+        run: npm install yarn -g
+      - name: Checkout ng-bootstrap/ng-bootstrap
+        uses: actions/checkout@v2
+        with:
+          repository: ng-bootstrap/ng-bootstrap
+          path: ./tmp
+      - name: Fetch all tags
+        working-directory: ./tmp
+        run: git fetch --all --tags
+      - name: Checkout tag
+        run: git checkout tags/4.0.2
+        working-directory: ./tmp
+      - name: Patch
+        run: cp -rf ./src/v4.0.2/. ./tmp
+      - name: Install dependencies
+        run: yarn install
+        working-directory: ./tmp
+      - name: Build demo
+        run: yarn run demo:build
+        working-directory: ./tmp
+      - name: Upload dist
+        uses: actions/upload-artifact@v2
+        with:
+          name: v4.0.2
+          path: ./tmp/demo/dist/
+
+  build_v401:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup NodeJS 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - name: Install Yarn
+        run: npm install yarn -g
+      - name: Checkout ng-bootstrap/ng-bootstrap
+        uses: actions/checkout@v2
+        with:
+          repository: ng-bootstrap/ng-bootstrap
+          path: ./tmp
+      - name: Fetch all tags
+        working-directory: ./tmp
+        run: git fetch --all --tags
+      - name: Checkout tag
+        run: git checkout tags/4.0.1
+        working-directory: ./tmp
+      - name: Patch
+        run: cp -rf ./src/v4.0.1/. ./tmp
+      - name: Install dependencies
+        run: yarn install
+        working-directory: ./tmp
+      - name: Build demo
+        run: yarn run demo:build
+        working-directory: ./tmp
+      - name: Upload dist
+        uses: actions/upload-artifact@v2
+        with:
+          name: v4.0.1
+          path: ./tmp/demo/dist/
+
+  build_v400:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup NodeJS 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - name: Install Yarn
+        run: npm install yarn -g
+      - name: Checkout ng-bootstrap/ng-bootstrap
+        uses: actions/checkout@v2
+        with:
+          repository: ng-bootstrap/ng-bootstrap
+          path: ./tmp
+      - name: Fetch all tags
+        working-directory: ./tmp
+        run: git fetch --all --tags
+      - name: Checkout tag
+        run: git checkout tags/4.0.0
+        working-directory: ./tmp
+      - name: Patch
+        run: cp -rf ./src/v4.0.0/. ./tmp
+      - name: Install dependencies
+        run: yarn install
+        working-directory: ./tmp
+      - name: Build demo
+        run: yarn run demo:build
+        working-directory: ./tmp
+      - name: Upload dist
+        uses: actions/upload-artifact@v2
+        with:
+          name: v4.0.0
+          path: ./tmp/demo/dist/
+
+  build_v331:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup NodeJS 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - name: Install Yarn
+        run: npm install yarn -g
+      - name: Checkout ng-bootstrap/ng-bootstrap
+        uses: actions/checkout@v2
+        with:
+          repository: ng-bootstrap/ng-bootstrap
+          path: ./tmp
+      - name: Fetch all tags
+        working-directory: ./tmp
+        run: git fetch --all --tags
+      - name: Checkout tag
+        run: git checkout tags/3.3.1
+        working-directory: ./tmp
+      - name: Patch
+        run: cp -rf ./src/v3.3.1/. ./tmp
+      - name: Install dependencies
+        run: yarn install
+        working-directory: ./tmp
+      - name: Build demo
+        run: yarn run demo:build
+        working-directory: ./tmp
+      - name: Upload dist
+        uses: actions/upload-artifact@v2
+        with:
+          name: v3.3.1
+          path: ./tmp/demo/dist/
+
+  build_v330:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup NodeJS 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - name: Install Yarn
+        run: npm install yarn -g
+      - name: Checkout ng-bootstrap/ng-bootstrap
+        uses: actions/checkout@v2
+        with:
+          repository: ng-bootstrap/ng-bootstrap
+          path: ./tmp
+      - name: Fetch all tags
+        working-directory: ./tmp
+        run: git fetch --all --tags
+      - name: Checkout tag
+        run: git checkout tags/3.3.0
+        working-directory: ./tmp
+      - name: Patch
+        run: cp -rf ./src/v3.3.0/. ./tmp
+      - name: Install dependencies
+        run: yarn install
+        working-directory: ./tmp
+      - name: Build demo
+        run: yarn run demo:build
+        working-directory: ./tmp
+      - name: Upload dist
+        uses: actions/upload-artifact@v2
+        with:
+          name: v3.3.0
+          path: ./tmp/demo/dist/
+
+  build_v322:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup NodeJS 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - name: Install Yarn
+        run: npm install yarn -g
+      - name: Checkout ng-bootstrap/ng-bootstrap
+        uses: actions/checkout@v2
+        with:
+          repository: ng-bootstrap/ng-bootstrap
+          path: ./tmp
+      - name: Fetch all tags
+        working-directory: ./tmp
+        run: git fetch --all --tags
+      - name: Checkout tag
+        run: git checkout tags/3.2.2
+        working-directory: ./tmp
+      - name: Patch
+        run: cp -rf ./src/v3.2.2/. ./tmp
+      - name: Install dependencies
+        run: yarn install
+        working-directory: ./tmp
+      - name: Build demo
+        run: yarn run demo:build
+        working-directory: ./tmp
+      - name: Upload dist
+        uses: actions/upload-artifact@v2
+        with:
+          name: v3.2.2
+          path: ./tmp/demo/dist/
+
+  build_v321:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup NodeJS 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - name: Install Yarn
+        run: npm install yarn -g
+      - name: Checkout ng-bootstrap/ng-bootstrap
+        uses: actions/checkout@v2
+        with:
+          repository: ng-bootstrap/ng-bootstrap
+          path: ./tmp
+      - name: Fetch all tags
+        working-directory: ./tmp
+        run: git fetch --all --tags
+      - name: Checkout tag
+        run: git checkout tags/3.2.1
+        working-directory: ./tmp
+      - name: Patch
+        run: cp -rf ./src/v3.2.1/. ./tmp
+      - name: Install dependencies
+        run: yarn install
+        working-directory: ./tmp
+      - name: Build demo
+        run: yarn run demo:build
+        working-directory: ./tmp
+      - name: Upload dist
+        uses: actions/upload-artifact@v2
+        with:
+          name: v3.2.1
+          path: ./tmp/demo/dist/
+
+  build_v320:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup NodeJS 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - name: Install Yarn
+        run: npm install yarn -g
+      - name: Checkout ng-bootstrap/ng-bootstrap
+        uses: actions/checkout@v2
+        with:
+          repository: ng-bootstrap/ng-bootstrap
+          path: ./tmp
+      - name: Fetch all tags
+        working-directory: ./tmp
+        run: git fetch --all --tags
+      - name: Checkout tag
+        run: git checkout tags/3.2.0
+        working-directory: ./tmp
+      - name: Patch
+        run: cp -rf ./src/v3.2.0/. ./tmp
+      - name: Install dependencies
+        run: yarn install
+        working-directory: ./tmp
+      - name: Build demo
+        run: yarn run demo:build
+        working-directory: ./tmp
+      - name: Upload dist
+        uses: actions/upload-artifact@v2
+        with:
+          name: v3.2.0
+          path: ./tmp/demo/dist/
+
+  build_v310:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup NodeJS 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - name: Install Yarn
+        run: npm install yarn -g
+      - name: Checkout ng-bootstrap/ng-bootstrap
+        uses: actions/checkout@v2
+        with:
+          repository: ng-bootstrap/ng-bootstrap
+          path: ./tmp
+      - name: Fetch all tags
+        working-directory: ./tmp
+        run: git fetch --all --tags
+      - name: Checkout tag
+        run: git checkout tags/3.1.0
+        working-directory: ./tmp
+      - name: Patch
+        run: cp -rf ./src/v3.1.0/. ./tmp
+      - name: Install dependencies
+        run: yarn install
+        working-directory: ./tmp
+      - name: Build demo
+        run: yarn run demo:build
+        working-directory: ./tmp
+      - name: Upload dist
+        uses: actions/upload-artifact@v2
+        with:
+          name: v3.1.0
+          path: ./tmp/demo/dist/
+
+  build_v300:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup NodeJS 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - name: Install Yarn
+        run: npm install yarn -g
+      - name: Checkout ng-bootstrap/ng-bootstrap
+        uses: actions/checkout@v2
+        with:
+          repository: ng-bootstrap/ng-bootstrap
+          path: ./tmp
+      - name: Fetch all tags
+        working-directory: ./tmp
+        run: git fetch --all --tags
+      - name: Checkout tag
+        run: git checkout tags/3.0.0
+        working-directory: ./tmp
+      - name: Patch
+        run: cp -rf ./src/v3.0.0/. ./tmp
+      - name: Install dependencies
+        run: yarn install
+        working-directory: ./tmp
+      - name: Build demo
+        run: yarn run demo:build
+        working-directory: ./tmp
+      - name: Upload dist
+        uses: actions/upload-artifact@v2
+        with:
+          name: v3.0.0
+          path: ./tmp/demo/dist/
+
   commit_results:
-    needs: [build_v620, build_v610]
+    needs: [build_v620, build_v610, build_v603, build_v602, build_v601, build_v600, build_v531, build_v530, build_v523, build_v522, build_v521, build_v520, build_v515, build_v514, build_v513, build_v512, build_v511, build_v510, build_v500, build_v422, build_v421, build_v420, build_v413, build_v412, build_v411, build_v410, build_v405, build_v404, build_v403, build_v402, build_v401, build_v400, build_v331, build_v330, build_v322, build_v321, build_v320, build_v310, build_v300]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -108,6 +1440,376 @@ jobs:
           name: v6.1.0
           path: ./v6.1.0/
       - run: git add ./v6.1.0/*
+      - name: Clean up v6.0.3 directory
+        run: |
+          git rm ./v6.0.3/* -f -r
+          mkdir ./v6.0.3
+      - name: Download v6.0.3 artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: v6.0.3
+          path: ./v6.0.3/
+      - run: git add ./v6.0.3/*
+      - name: Clean up v6.0.2 directory
+        run: |
+          git rm ./v6.0.2/* -f -r
+          mkdir ./v6.0.2
+      - name: Download v6.0.2 artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: v6.0.2
+          path: ./v6.0.2/
+      - run: git add ./v6.0.2/*
+      - name: Clean up v6.0.1 directory
+        run: |
+          git rm ./v6.0.1/* -f -r
+          mkdir ./v6.0.1
+      - name: Download v6.0.1 artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: v6.0.1
+          path: ./v6.0.1/
+      - run: git add ./v6.0.1/*
+      - name: Clean up v6.0.0 directory
+        run: |
+          git rm ./v6.0.0/* -f -r
+          mkdir ./v6.0.0
+      - name: Download v6.0.0 artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: v6.0.0
+          path: ./v6.0.0/
+      - run: git add ./v6.0.0/*
+      - name: Clean up v5.3.1 directory
+        run: |
+          git rm ./v5.3.1/* -f -r
+          mkdir ./v5.3.1
+      - name: Download v5.3.1 artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: v5.3.1
+          path: ./v5.3.1/
+      - run: git add ./v5.3.1/*
+      - name: Clean up v5.3.0 directory
+        run: |
+          git rm ./v5.3.0/* -f -r
+          mkdir ./v5.3.0
+      - name: Download v5.3.0 artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: v5.3.0
+          path: ./v5.3.0/
+      - run: git add ./v5.3.0/*
+      - name: Clean up v5.2.3 directory
+        run: |
+          git rm ./v5.2.3/* -f -r
+          mkdir ./v5.2.3
+      - name: Download v5.2.3 artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: v5.2.3
+          path: ./v5.2.3/
+      - run: git add ./v5.2.3/*
+      - name: Clean up v5.2.2 directory
+        run: |
+          git rm ./v5.2.2/* -f -r
+          mkdir ./v5.2.2
+      - name: Download v5.2.2 artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: v5.2.2
+          path: ./v5.2.2/
+      - run: git add ./v5.2.2/*
+      - name: Clean up v5.2.1 directory
+        run: |
+          git rm ./v5.2.1/* -f -r
+          mkdir ./v5.2.1
+      - name: Download v5.2.1 artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: v5.2.1
+          path: ./v5.2.1/
+      - run: git add ./v5.2.1/*
+      - name: Clean up v5.2.0 directory
+        run: |
+          git rm ./v5.2.0/* -f -r
+          mkdir ./v5.2.0
+      - name: Download v5.2.0 artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: v5.2.0
+          path: ./v5.2.0/
+      - run: git add ./v5.2.0/*
+      - name: Clean up v5.1.5 directory
+        run: |
+          git rm ./v5.1.5/* -f -r
+          mkdir ./v5.1.5
+      - name: Download v5.1.5 artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: v5.1.5
+          path: ./v5.1.5/
+      - run: git add ./v5.1.5/*
+      - name: Clean up v5.1.4 directory
+        run: |
+          git rm ./v5.1.4/* -f -r
+          mkdir ./v5.1.4
+      - name: Download v5.1.4 artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: v5.1.4
+          path: ./v5.1.4/
+      - run: git add ./v5.1.4/*
+      - name: Clean up v5.1.3 directory
+        run: |
+          git rm ./v5.1.3/* -f -r
+          mkdir ./v5.1.3
+      - name: Download v5.1.3 artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: v5.1.3
+          path: ./v5.1.3/
+      - run: git add ./v5.1.3/*
+      - name: Clean up v5.1.2 directory
+        run: |
+          git rm ./v5.1.2/* -f -r
+          mkdir ./v5.1.2
+      - name: Download v5.1.2 artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: v5.1.2
+          path: ./v5.1.2/
+      - run: git add ./v5.1.2/*
+      - name: Clean up v5.1.1 directory
+        run: |
+          git rm ./v5.1.1/* -f -r
+          mkdir ./v5.1.1
+      - name: Download v5.1.1 artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: v5.1.1
+          path: ./v5.1.1/
+      - run: git add ./v5.1.1/*
+      - name: Clean up v5.1.0 directory
+        run: |
+          git rm ./v5.1.0/* -f -r
+          mkdir ./v5.1.0
+      - name: Download v5.1.0 artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: v5.1.0
+          path: ./v5.1.0/
+      - run: git add ./v5.1.0/*
+      - name: Clean up v5.0.0 directory
+        run: |
+          git rm ./v5.0.0/* -f -r
+          mkdir ./v5.0.0
+      - name: Download v5.0.0 artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: v5.0.0
+          path: ./v5.0.0/
+      - run: git add ./v5.0.0/*
+      - name: Clean up v4.2.2 directory
+        run: |
+          git rm ./v4.2.2/* -f -r
+          mkdir ./v4.2.2
+      - name: Download v4.2.2 artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: v4.2.2
+          path: ./v4.2.2/
+      - run: git add ./v4.2.2/*
+      - name: Clean up v4.2.1 directory
+        run: |
+          git rm ./v4.2.1/* -f -r
+          mkdir ./v4.2.1
+      - name: Download v4.2.1 artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: v4.2.1
+          path: ./v4.2.1/
+      - run: git add ./v4.2.1/*
+      - name: Clean up v4.2.0 directory
+        run: |
+          git rm ./v4.2.0/* -f -r
+          mkdir ./v4.2.0
+      - name: Download v4.2.0 artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: v4.2.0
+          path: ./v4.2.0/
+      - run: git add ./v4.2.0/*
+      - name: Clean up v4.1.3 directory
+        run: |
+          git rm ./v4.1.3/* -f -r
+          mkdir ./v4.1.3
+      - name: Download v4.1.3 artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: v4.1.3
+          path: ./v4.1.3/
+      - run: git add ./v4.1.3/*
+      - name: Clean up v4.1.2 directory
+        run: |
+          git rm ./v4.1.2/* -f -r
+          mkdir ./v4.1.2
+      - name: Download v4.1.2 artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: v4.1.2
+          path: ./v4.1.2/
+      - run: git add ./v4.1.2/*
+      - name: Clean up v4.1.1 directory
+        run: |
+          git rm ./v4.1.1/* -f -r
+          mkdir ./v4.1.1
+      - name: Download v4.1.1 artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: v4.1.1
+          path: ./v4.1.1/
+      - run: git add ./v4.1.1/*
+      - name: Clean up v4.1.0 directory
+        run: |
+          git rm ./v4.1.0/* -f -r
+          mkdir ./v4.1.0
+      - name: Download v4.1.0 artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: v4.1.0
+          path: ./v4.1.0/
+      - run: git add ./v4.1.0/*
+      - name: Clean up v4.0.5 directory
+        run: |
+          git rm ./v4.0.5/* -f -r
+          mkdir ./v4.0.5
+      - name: Download v4.0.5 artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: v4.0.5
+          path: ./v4.0.5/
+      - run: git add ./v4.0.5/*
+      - name: Clean up v4.0.4 directory
+        run: |
+          git rm ./v4.0.4/* -f -r
+          mkdir ./v4.0.4
+      - name: Download v4.0.4 artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: v4.0.4
+          path: ./v4.0.4/
+      - run: git add ./v4.0.4/*
+      - name: Clean up v4.0.3 directory
+        run: |
+          git rm ./v4.0.3/* -f -r
+          mkdir ./v4.0.3
+      - name: Download v4.0.3 artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: v4.0.3
+          path: ./v4.0.3/
+      - run: git add ./v4.0.3/*
+      - name: Clean up v4.0.2 directory
+        run: |
+          git rm ./v4.0.2/* -f -r
+          mkdir ./v4.0.2
+      - name: Download v4.0.2 artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: v4.0.2
+          path: ./v4.0.2/
+      - run: git add ./v4.0.2/*
+      - name: Clean up v4.0.1 directory
+        run: |
+          git rm ./v4.0.1/* -f -r
+          mkdir ./v4.0.1
+      - name: Download v4.0.1 artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: v4.0.1
+          path: ./v4.0.1/
+      - run: git add ./v4.0.1/*
+      - name: Clean up v4.0.0 directory
+        run: |
+          git rm ./v4.0.0/* -f -r
+          mkdir ./v4.0.0
+      - name: Download v4.0.0 artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: v4.0.0
+          path: ./v4.0.0/
+      - run: git add ./v4.0.0/*
+      - name: Clean up v3.3.1 directory
+        run: |
+          git rm ./v3.3.1/* -f -r
+          mkdir ./v3.3.1
+      - name: Download v3.3.1 artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: v3.3.1
+          path: ./v3.3.1/
+      - run: git add ./v3.3.1/*
+      - name: Clean up v3.3.0 directory
+        run: |
+          git rm ./v3.3.0/* -f -r
+          mkdir ./v3.3.0
+      - name: Download v3.3.0 artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: v3.3.0
+          path: ./v3.3.0/
+      - run: git add ./v3.3.0/*
+      - name: Clean up v3.2.2 directory
+        run: |
+          git rm ./v3.2.2/* -f -r
+          mkdir ./v3.2.2
+      - name: Download v3.2.2 artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: v3.2.2
+          path: ./v3.2.2/
+      - run: git add ./v3.2.2/*
+      - name: Clean up v3.2.1 directory
+        run: |
+          git rm ./v3.2.1/* -f -r
+          mkdir ./v3.2.1
+      - name: Download v3.2.1 artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: v3.2.1
+          path: ./v3.2.1/
+      - run: git add ./v3.2.1/*
+      - name: Clean up v3.2.0 directory
+        run: |
+          git rm ./v3.2.0/* -f -r
+          mkdir ./v3.2.0
+      - name: Download v3.2.0 artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: v3.2.0
+          path: ./v3.2.0/
+      - run: git add ./v3.2.0/*
+      - name: Clean up v3.1.0 directory
+        run: |
+          git rm ./v3.1.0/* -f -r
+          mkdir ./v3.1.0
+      - name: Download v3.1.0 artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: v3.1.0
+          path: ./v3.1.0/
+      - run: git add ./v3.1.0/*
+      - name: Clean up v3.0.0 directory
+        run: |
+          git rm ./v3.0.0/* -f -r
+          mkdir ./v3.0.0
+      - name: Download v3.0.0 artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: v3.0.0
+          path: ./v3.0.0/
+      - run: git add ./v3.0.0/*
       - name: Commit changes
         run: |
           if ! git diff-index --quiet HEAD --; then

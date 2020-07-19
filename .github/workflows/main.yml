@@ -33,7 +33,9 @@ jobs:
       - name: Show directory
         run: dir ./src
       - name: Patch v6.2.0 demo
-        run: cp -r ./src/v6.2.0/. ./tmp
+        run: cp -rf ./src/v6.2.0/. ./tmp
+      - name: Show patched content
+        run: cat ./tmp/demo/src/app/app.component.html
       - name: Install v6.2.0 dependencies
         run: yarn install
         working-directory: ./tmp

@@ -6,6 +6,44 @@ on:
       - master
 
 jobs:
+  build_v200:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup NodeJS 9.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 9.x
+      - name: Install Yarn
+        run: npm install yarn -g
+      - name: Install Gulp
+        run: npm install gulp -g
+      - name: Checkout ng-bootstrap/ng-bootstrap
+        uses: actions/checkout@v2
+        with:
+          repository: ng-bootstrap/ng-bootstrap
+          path: ./tmp
+      - name: Fetch all tags
+        working-directory: ./tmp
+        run: git fetch --all --tags
+      - name: Checkout tag
+        run: git checkout tags/2.0.0
+        working-directory: ./tmp
+      - name: Patch
+        run: cp -rf ./src/v2.0.0/. ./tmp
+      - name: Install dependencies
+        run: yarn install
+        working-directory: ./tmp
+      - name: Build demo
+        run: gulp build:demo
+        working-directory: ./tmp
+      - name: Upload dist
+        uses: actions/upload-artifact@v2
+        with:
+          name: v2.0.0
+          path: ./tmp/demo/dist/
+
   build_v112:
     runs-on: ubuntu-latest
     steps:
@@ -83,7 +121,7 @@ jobs:
           path: ./tmp/demo/dist/
 
   commit_results:
-    needs: [build_v112, build_v111]
+    needs: [build_v200, build_v112, build_v111]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -92,6 +130,16 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
+      - name: Clean up v2.0.0 directory
+        run: |
+          mkdir ./v2.0.0 -p
+          git rm ./v2.0.0/* -f -r --ignore-unmatch
+      - name: Download v2.0.0 artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: v2.0.0
+          path: ./v2.0.0/
+      - run: git add ./v2.0.0/*
       - name: Clean up v1.1.2 directory
         run: |
           mkdir ./v1.1.2 -p

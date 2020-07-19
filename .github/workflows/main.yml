@@ -6,15 +6,15 @@ on:
       - master
 
 jobs:
-  build_v321:
+  build_v405:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Setup NodeJS 9.x
+      - name: Setup NodeJS 11.x
         uses: actions/setup-node@v1
         with:
-          node-version: 9.x
+          node-version: 11.x
       - name: Install Yarn
         run: npm install yarn -g
       - name: Checkout ng-bootstrap/ng-bootstrap
@@ -26,10 +26,10 @@ jobs:
         working-directory: ./tmp
         run: git fetch --all --tags
       - name: Checkout tag
-        run: git checkout tags/3.2.1
+        run: git checkout tags/4.0.5
         working-directory: ./tmp
       - name: Patch
-        run: cp -rf ./src/v3.2.1/. ./tmp
+        run: cp -rf ./src/v4.0.5/. ./tmp
       - name: Install dependencies
         run: yarn install
         working-directory: ./tmp
@@ -39,119 +39,11 @@ jobs:
       - name: Upload dist
         uses: actions/upload-artifact@v2
         with:
-          name: v3.2.1
-          path: ./tmp/demo/dist/
-
-  build_v320:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Setup NodeJS 9.x
-        uses: actions/setup-node@v1
-        with:
-          node-version: 9.x
-      - name: Install Yarn
-        run: npm install yarn -g
-      - name: Checkout ng-bootstrap/ng-bootstrap
-        uses: actions/checkout@v2
-        with:
-          repository: ng-bootstrap/ng-bootstrap
-          path: ./tmp
-      - name: Fetch all tags
-        working-directory: ./tmp
-        run: git fetch --all --tags
-      - name: Checkout tag
-        run: git checkout tags/3.2.0
-        working-directory: ./tmp
-      - name: Patch
-        run: cp -rf ./src/v3.2.0/. ./tmp
-      - name: Install dependencies
-        run: yarn install
-        working-directory: ./tmp
-      - name: Build demo
-        run: yarn run demo:build
-        working-directory: ./tmp
-      - name: Upload dist
-        uses: actions/upload-artifact@v2
-        with:
-          name: v3.2.0
-          path: ./tmp/demo/dist/
-
-  build_v310:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Setup NodeJS 9.x
-        uses: actions/setup-node@v1
-        with:
-          node-version: 9.x
-      - name: Install Yarn
-        run: npm install yarn -g
-      - name: Checkout ng-bootstrap/ng-bootstrap
-        uses: actions/checkout@v2
-        with:
-          repository: ng-bootstrap/ng-bootstrap
-          path: ./tmp
-      - name: Fetch all tags
-        working-directory: ./tmp
-        run: git fetch --all --tags
-      - name: Checkout tag
-        run: git checkout tags/3.1.0
-        working-directory: ./tmp
-      - name: Patch
-        run: cp -rf ./src/v3.1.0/. ./tmp
-      - name: Install dependencies
-        run: yarn install
-        working-directory: ./tmp
-      - name: Build demo
-        run: yarn run demo:build
-        working-directory: ./tmp
-      - name: Upload dist
-        uses: actions/upload-artifact@v2
-        with:
-          name: v3.1.0
-          path: ./tmp/demo/dist/
-
-  build_v300:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Setup NodeJS 9.x
-        uses: actions/setup-node@v1
-        with:
-          node-version: 9.x
-      - name: Install Yarn
-        run: npm install yarn -g
-      - name: Checkout ng-bootstrap/ng-bootstrap
-        uses: actions/checkout@v2
-        with:
-          repository: ng-bootstrap/ng-bootstrap
-          path: ./tmp
-      - name: Fetch all tags
-        working-directory: ./tmp
-        run: git fetch --all --tags
-      - name: Checkout tag
-        run: git checkout tags/3.0.0
-        working-directory: ./tmp
-      - name: Patch
-        run: cp -rf ./src/v3.0.0/. ./tmp
-      - name: Install dependencies
-        run: yarn install
-        working-directory: ./tmp
-      - name: Build demo
-        run: yarn run demo:build
-        working-directory: ./tmp
-      - name: Upload dist
-        uses: actions/upload-artifact@v2
-        with:
-          name: v3.0.0
+          name: v4.0.5
           path: ./tmp/demo/dist/
 
   commit_results:
-    needs: [build_v321, build_v320, build_v310, build_v300]
+    needs: [build_v405]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -160,46 +52,16 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-      - name: Clean up v3.2.1 directory
+      - name: Clean up v4.0.5 directory
         run: |
-          mkdir ./v3.2.1
-          git rm ./v3.2.1/* -f -r --ignore-unmatch
-      - name: Download v3.2.1 artifacts
+          mkdir ./v4.0.5
+          git rm ./v4.0.5/* -f -r --ignore-unmatch
+      - name: Download v4.0.5 artifacts
         uses: actions/download-artifact@v2
         with:
-          name: v3.2.1
-          path: ./v3.2.1/
-      - run: git add ./v3.2.1/*
-      - name: Clean up v3.2.0 directory
-        run: |
-          mkdir ./v3.2.0
-          git rm ./v3.2.0/* -f -r --ignore-unmatch
-      - name: Download v3.2.0 artifacts
-        uses: actions/download-artifact@v2
-        with:
-          name: v3.2.0
-          path: ./v3.2.0/
-      - run: git add ./v3.2.0/*
-      - name: Clean up v3.1.0 directory
-        run: |
-          mkdir ./v3.1.0
-          git rm ./v3.1.0/* -f -r --ignore-unmatch
-      - name: Download v3.1.0 artifacts
-        uses: actions/download-artifact@v2
-        with:
-          name: v3.1.0
-          path: ./v3.1.0/
-      - run: git add ./v3.1.0/*
-      - name: Clean up v3.0.0 directory
-        run: |
-          mkdir ./v3.0.0
-          git rm ./v3.0.0/* -f -r --ignore-unmatch
-      - name: Download v3.0.0 artifacts
-        uses: actions/download-artifact@v2
-        with:
-          name: v3.0.0
-          path: ./v3.0.0/
-      - run: git add ./v3.0.0/*
+          name: v4.0.5
+          path: ./v4.0.5/
+      - run: git add ./v4.0.5/*
       - name: Commit changes
         run: |
           if ! git diff-index --quiet HEAD --; then

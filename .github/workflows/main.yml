@@ -11,10 +11,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Setup NodeJS 10.x
+      - name: Setup NodeJS 9.x
         uses: actions/setup-node@v1
         with:
-          node-version: 10.x
+          node-version: 9.x
       - name: Install Yarn
         run: npm install yarn -g
       - name: Checkout ng-bootstrap/ng-bootstrap
@@ -47,10 +47,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Setup NodeJS 10.x
+      - name: Setup NodeJS 9.x
         uses: actions/setup-node@v1
         with:
-          node-version: 10.x
+          node-version: 9.x
       - name: Install Yarn
         run: npm install yarn -g
       - name: Checkout ng-bootstrap/ng-bootstrap

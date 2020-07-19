@@ -31,7 +31,7 @@ jobs:
         run: git checkout tags/6.2.0
         working-directory: ./tmp
       - name: Patch v6.2.0 demo
-        run: git mv ./src/v6.2.0/* ./tmp -f
+        run: git mv ./src/v6.2.0/demo ./tmp -f
       - name: Install v6.2.0 dependencies
         run: yarn install
         working-directory: ./tmp

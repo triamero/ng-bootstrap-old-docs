@@ -21,3 +21,13 @@ jobs:
       - name: Checkout v6.2.0
         run: git checkout tags/6.2.0
         working-directory: ./src/v6.2.0
+      - name: Use NodeJS 12.x
+        with:
+          node-version: 12.x
+      - name: Install Yarn
+        run: npm install yarn -g
+        working-directory: ./src/v6.2.0
+      - name: Install v6.2.0 dependencies
+        run: yarn install
+        working-directory: ./src/v6.2.0
+        

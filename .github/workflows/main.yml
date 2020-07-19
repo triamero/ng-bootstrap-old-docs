@@ -31,7 +31,7 @@ jobs:
         run: git checkout tags/6.2.0
         working-directory: ./tmp
       - name: Show directory
-        run: dir
+        run: dir ./src
       - name: Patch v6.2.0 demo
         run: cp -r ./src/v6.2.0 ./tmp
       - name: Install v6.2.0 dependencies

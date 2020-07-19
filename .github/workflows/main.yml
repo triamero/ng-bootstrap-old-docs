@@ -54,7 +54,7 @@ jobs:
           git config --local user.name "GitHub Action"
       - name: Clean up v4.0.5 directory
         run: |
-          mkdir ./v4.0.5
+          mkdir ./v4.0.5 -p
           git rm ./v4.0.5/* -f -r --ignore-unmatch
       - name: Download v4.0.5 artifacts
         uses: actions/download-artifact@v2

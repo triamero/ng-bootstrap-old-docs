@@ -26,7 +26,7 @@ jobs:
         working-directory: ./tmp
         run: git fetch --all --tags
       - name: Checkout tag
-        run: git checkout tags/v6.2.0
+        run: git checkout tags/6.2.0
         working-directory: ./tmp
       - name: Patch
         run: cp -rf ./src/v6.2.0/. ./tmp
@@ -62,7 +62,7 @@ jobs:
         working-directory: ./tmp
         run: git fetch --all --tags
       - name: Checkout tag
-        run: git checkout tags/v6.1.0
+        run: git checkout tags/6.1.0
         working-directory: ./tmp
       - name: Patch
         run: cp -rf ./src/v6.1.0/. ./tmp
@@ -81,6 +81,8 @@ jobs:
   commit_results:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v2
       - name: Configure git
         run: |
           git config --local user.email "action@github.com"
